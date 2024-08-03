@@ -587,27 +587,18 @@ footer small {
 /* About Section End */
 
 /* Achievements Section */
-.achievements {
-  padding: 50px 0;
-  background-color: #f4f4f4;
-}
-
-.achievements .section-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
 .achievements .achievement-item {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #ddd; /* Optional: Add a border for better visibility */
-  padding: 15px; /* Ensure padding matches your design */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  background-color: #fff; /* Optional: Add a background color */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px; 
+  background-color: #fff; 
+  margin-bottom: 10px;
 }
 
 .achievements .achievement-item:hover {
-  transform: scale(1.05); /* Slightly enlarges the item on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .achievements .achievement-title {
@@ -618,7 +609,7 @@ footer small {
 
 .achievements .achievement-title i {
   margin-right: 10px;
-  color: #007bff; /* Adjust color as needed */
+  color: #007bff;
 }
 
 .achievements .achievement-info {
@@ -960,14 +951,14 @@ body.dark #form .input_group select{
 @media (max-width: 450px) {
   .contact-text p {
     font-size: 30px;
+    /* margin: 10px 0; */
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .achievements .achievement-item {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
-    margin: 10px;
   }
 }
