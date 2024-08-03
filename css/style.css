@@ -965,8 +965,8 @@ body.dark #form .input_group select{
 
 @media (max-width: 768px) {
   .achievements .achievement-item {
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
+    -ms-flex: 0 0 80%;
+    flex: 0 0 80%;
+    max-width: 80%;
   }
 }
