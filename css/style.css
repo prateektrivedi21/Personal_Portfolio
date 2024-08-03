@@ -963,7 +963,7 @@ body.dark #form .input_group select{
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 650px) {
   .achievements .achievement-item {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
