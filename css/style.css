@@ -632,12 +632,6 @@ footer small {
   font-size: 16px;
   color: #555;
 }
-
-@media (max-width: 768px) {
-  .achievements .achievement-item {
-    flex: 0 0 100%; /* Full width on smaller screens */
-  }
-}
 /* Achievement Section */
 
 /* Project Section */
@@ -966,6 +960,13 @@ body.dark #form .input_group select{
 @media (max-width: 450px) {
   .contact-text p {
     font-size: 30px;
-    /* margin: 10px 0; */
+  }
+}
+
+@media (max-width: 768px) {
+  .achievements .achievement-item {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
