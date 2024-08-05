@@ -739,7 +739,7 @@ footer small {
   position: relative;
   margin-bottom: 30px;
   width: 48%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 #form .input_group input, 
