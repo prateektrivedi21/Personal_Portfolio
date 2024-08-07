@@ -8,6 +8,9 @@
     <!-- title -->
     <title>Prateek Trivedi - Portfolio</title>
     <meta property="og:title" content="Prateek Trivedi - Portfolio" />
+    
+    <!-- favicon -->
+    <link type="image/png" sizes="32x32" rel="icon" href="images/icons-8.png">
 
     <!-- url -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -106,11 +109,11 @@
         <div class="logo">
           <a href="index.html">Prateek</a>
         </div>
-        <!-- navbar toggle btn -->
+        <!-- navbar toggle btn-->
         <div class="nav-toggler">
           <span></span>
         </div>
-        <!-- Navbar -->
+        <!-- Navbar--> 
         <nav>
           <ul class="nav">
             <li>
@@ -120,7 +123,7 @@
               <a href="#about"><i class="fa fa-user"></i>About Me</a>
             </li>
             <li>
-              <a href="#achievements"><i class="fa fa-user"></i>Achievements</a>
+              <a href="#achievements"><i class="fa fa-trophy"></i>Achievements</a>
             </li>
             <li>
               <a href="#projects"><i class="fa fa-briefcase"></i>Projects</a>
@@ -130,6 +133,35 @@
             </li>
           </ul>
         </nav>
+        <!--Social-Links-->
+        <div class="social-text">
+          <a href="#contact">Find me on <i class="fa fa-globe"></i></a>
+        </div> 
+        <div class="social-links">
+          <a
+            title="Linkedin"
+            href="https://www.linkedin.com/in/theprateektrivedi/"
+            rel="noopener"
+            target="_blank"
+          >
+            <i class="fa fa-linkedin"></i
+          ></a>
+          <a
+            title="Github"
+            href="https://github.com/prateektrivedi21"
+            rel="noopener"
+            target="_blank"
+            ><i class="fa fa-github"></i
+          ></a>
+          <a
+            title="Instagram"
+            href="https://www.instagram.com/prateek_2248/"
+            rel="noopener"
+            target="_blank"
+          >
+            <i class="fa fa-instagram"></i
+          ></a>
+        </div>
         <!-- Footer-->
         <footer>
           <small> &copy; 2025 Prateek Trivedi</small>
@@ -143,11 +175,26 @@
         <section class="home section active" id="home">
           <div class="container">
             <div class="intro">
-              <div class="img-div shadow-dark"></div>
-
-              <h1>Prateek Trivedi</h1>
+              <div class="about-img">
+                <span class="circle-spin"></span>
+              </div>
+              <!-- <div class="img-div "></div> -->
+              <h1>Hi, I'm Prateek Trivedi</h1>
               <p>Converts caffeine into code</p>
+              <div class="row">
+                <div class="buttons padd-15">
+                  <a
+                    href="https://drive.google.com/file/d/1fvzDIYlg5fVOZGNsl4WmgFj8LmXNyoll/view?usp=sharing"
+                    rel="noopener"
+                    download
+                    target="_blank"
+                    class="btn"
+                    >Download CV
+                  </a>
+                </div>
+              </div>
               <div class="social-links">
+                <!-- <p>Find me on</p> -->
                 <a
                   title="Linkedin"
                   href="https://www.linkedin.com/in/theprateektrivedi/"
@@ -169,6 +216,14 @@
                   rel="noopener"
                   target="_blank"
                   ><i class="fa fa-github"></i
+                ></a>
+                <a
+                  title="Instagram"
+                  href="https://www.instagram.com/prateek_2248/"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  <i class="fa fa-instagram"></i
                 ></a>
               </div>
             </div>
@@ -368,7 +423,7 @@
                               Graphic Era University, Dehradun
                             </p>
                             <p class="timeline-text">
-                              CGPA : 8.54 till 6th sem
+                              CGPA : 8.62 till 7th sem
                             </p>
                           </div>
                           <!-- /// Timeline Item End -->
@@ -734,13 +789,26 @@
                 <h2>Contact Me</h2>
               </div>
             </div>
+            <div class="contact-help">
+              <p>How can I help you?</p>
+            </div>
             <div class="row">
+              <!-- Contact Info Item -->
+              <div class="contact-info-item padd-15">
+                <div class="icon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <h2>Call Us On</h2>
+                <p>+91 8081XXXXXXXX</p>
+              </div>
+              <!-- Contact Info Item End -->
               <!-- Contact Info Item -->
               <div class="contact-info-item padd-15">
                 <div class="icon">
                   <i class="fa fa-envelope"></i>
                 </div>
-                <p>prateektrivedi.2019007@gmail.com</p>
+                <h2>E-Mail</h2>
+                <p>prateektrivedi.xavier@gmail.com</p>
               </div>
               <!-- Contact Info Item End -->
               <!-- Contact Info Item -->
@@ -748,7 +816,17 @@
                 <div class="icon">
                   <i class="fa fa-map-marker"></i>
                 </div>
+                <h2>Office</h2>
                 <p>Hardoi, Uttar Pradesh</p>
+              </div>
+              <!-- Contact Info Item End -->
+              <!-- Contact Info Item -->
+              <div class="contact-info-item padd-15">
+                <div class="icon">
+                  <i class="fa fa-globe" aria-hidden="true"></i>
+                </div>
+                <h2>Website</h2>
+                <p>prateektrivedi21.github.io</p>
               </div>
               <!-- Contact Info Item End -->
             </div>
@@ -799,6 +877,10 @@
                   </div>
                 </div>
 
+                <div class="feedback">
+                  <span>Provide your valuable feedback</span>
+                  <textarea name="feedback" id="feedback-text" required></textarea>
+                </div>
                 <input type="submit" value="Submit" class="submit_form" />
               </form>
             </div>
