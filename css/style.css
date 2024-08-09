@@ -28,7 +28,7 @@ body {
   background-color: #f2f2fc;
   display: block;
   position: fixed;
-  left: 0;
+  left: 270px;
   top: 0;
   right: 0;
   bottom: 0;
@@ -1188,7 +1188,7 @@ body.dark #form .input_group select{
 
 /* ////// RESPONSIVE */
 
-@media (max-width: 998px) {
+@media (max-width: 1098px) {
   .section-title h2 {
     margin-top: 15px;
   }
@@ -1228,12 +1228,17 @@ body.dark #form .input_group select{
     max-width: 50%;
   }
 }
-@media (max-width: 815px) {
+@media (max-width: 910px) {
   .about .about-content .skills {
     flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     max-width: 50%;
     margin-top: 40px;
+  }
+  .contact .contact-info-item {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
   }
 }
 @media (max-width: 740px) {
