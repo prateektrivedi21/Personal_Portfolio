@@ -1,965 +1,1329 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
-    <!-- title -->
-    <title>Prateek Trivedi - Portfolio</title>
-    <meta property="og:title" content="Prateek Trivedi - Portfolio" />
-    
-    <!-- favicon -->
-    <link type="image/png" sizes="32x32" rel="icon" href="images/icons-8.png">
+/* Font Awesome Icon */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;900&display=swap");
 
-    <!-- url -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+/* General Styling */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+::before,
+::after {
+  box-sizing: border-box;
+}
+.section {
+  min-height: 100vh;
+  background-color: #f2f2fc;
+  display: block;
+  position: fixed;
+  left: 270px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 30px;
+  z-index: 0;
+  overflow-y: auto;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.section.back-section {
+  z-index: 1;
+}
+.section.active {
+  opacity: 1;
+  z-index: 2;
+  -webkit-animation: slideSection 1s ease;
+  animation: slideSection 1s ease;
+}
+@-webkit-keyframes slideSection {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+@keyframes slideSection {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+.section .container {
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+.padd-15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.row {
+  display: flex;
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  position: relative;
+}
+.section-title {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 60px;
+}
+.section-title h2 {
+  font-size: 40px;
+  color: #302e4c;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+}
+.section-title h2::before {
+  content: "";
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.section-title h2::after {
+  content: "";
+  height: 4px;
+  width: 25px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+}
+/* container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  width: 100%;
+}
+.shadow-dark {
+  -webkit-box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+  box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+.btn {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  padding: 12px 35px;
+  color: #fff;
+  border-radius: 40px;
+  display: inline-block;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+}
+/* preloader */
+.preloader {
+  width: 100%;
+  height: 100vh;
+  background-color: #222222;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  z-index: 150;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+.preloader.opacity-0 {
+  opacity: 0;
+}
+.preloader .loader {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #e3e3e3;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
 
-    <link
-      rel="canonical"
-      href="https://github.com/prateektrivedi21.github.io"
-    />
-    <meta property="og:url" content="https://prateektrivedi21.github.io" />
+/* Aside start*/
+.aside {
+  width: 270px;
+  height: 100%;
+  background-color: #fdf9ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #e8dfec;
+  padding: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.aside .logo {
+  padding: 30px 0;
+}
+.aside .logo a {
+  font-family: "Rubik", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  color: #302e4c;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 10px;
+  line-height: 50px;
+  position: relative;
+}
+.aside .logo a::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.aside .logo a::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.aside .nav-toggler {
+  width: 40px;
+  height: 45px;
+  border: 1px solid #d4d4e3;
+  background-color: #fdf9ff;
+  cursor: pointer;
+  position: fixed;
+  left: 300px;
+  top: 20px;
+  z-index: 11;
+  border-radius: 5px;
+  /* display: flex;
+  display: -ms-flexbox; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.aside .nav-toggler span {
+  width: 18px;
+  height: 2px;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.aside .nav-toggler.open span {
+  background-color: transparent;
+}
+.aside .nav-toggler span::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  position: absolute;
+  top: -6px;
+  left: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.aside .nav-toggler.open span::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 0;
+}
+.aside .nav-toggler span::after {
+  content: "";
+  width: 18px;
+  height: 2px;
+  position: absolute;
+  top: 6px;
+  left: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.aside .nav-toggler.open span::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 0;
+}
+/* navbar */
+.aside .nav {
+  margin: 80px 0 60px;
+  list-style: none;
+  padding: 0;
+}
+.aside .nav li a {
+  font-weight: 600;
+  color: #302e4d;
+  display: block;
+  line-height: 45px;
+  border-bottom: 1px solid #e8dfec;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  text-transform: capitalize;
+}
+.aside .nav li a .fa {
+  margin-right: 7px;
+}
+.nav li a:not(.active):hover {
+  padding-left: 5px;
+}
 
-    <!-- description -->
-    <meta
-      name="description"
-      content="A passionate frontend web developer from Hardoi, Uttar Pradesh who develops UI using HTML5, CSS3, JS, Bootstrap4, jQuery etc. And always ready to learn more and mend himself."
-    />
-    <meta
-      property="og:description"
-      content="A frontend web developer from Hardoi, Uttar Pradesh who develops UI using HTML5, CSS3, JS, Bootstrap4, jQuery etc. And always ready to learn more and mend himself."
-    />
-    <!-- image -->
-    <meta
-      property="og:image"
-      content="https://i.ibb.co/XXKgzYB/android-chrome-192x192.png"
-    />
-    <meta
-      name="twitter:image"
-      content="https://i.ibb.co/XXKgzYB/android-chrome-192x192.png"
-    />
-    <!-- og tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Prateek Trivedi" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary" />
-    <!-- ////  favicon -->
+.aside .social-text a {
+  font-family: "Rubik", sans-serif;
+  width: 150px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #302e4c;
+  padding: 0 5px;
+  display: block;
+  line-height: 30px;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  text-transform: capitalize;
+  position: relative;
+}
+.aside .social-text a::before {
+  border-top: 3px solid var(--red);
+  border-left: 3px solid var(--red);
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.aside .social-text a::after {
+  border-bottom: 3px solid var(--red);
+  border-right: 3px solid var(--red);
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.aside .social-text a:not(.active):hover {
+  transform: scale(1.05);
+}
+/* ******************** */
+.aside .social-links{
+  bottom: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 160px;
+  display: flex;
+  justify-content: space-between;
+}
+.aside .social-links::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 2;
+}
 
-    <!-- css files -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/skins/red.css" type="text/css" />
-    <!-- five themes -->
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="red"
-      href="css/skins/red.css"
-      type="text/css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="blue"
-      href="css/skins/blue.css"
-      type="text/css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="green"
-      href="css/skins/green.css"
-      type="text/css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="purple"
-      href="css/skins/purple.css"
-      type="text/css"
-      disabled
-    />
-    <link
-      rel="stylesheet"
-      class="alternate-style"
-      title="yellow"
-      href="css/skins/yellow.css"
-      type="text/css"
-      disabled
-    />
-    <!-- style switcher -->
-    <link rel="stylesheet" href="css/styleSwitcher.css" />
-  </head>
+.aside .social-links a{
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #302e4d;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #302e4d;
+  text-decoration: none;
+  overflow: hidden;
+  /* z-index: 1;*/
+  line-height: 35px;
+  margin: 4px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
 
-  <body>
-    <!-- preloader start -->
-    <div class="preloader">
-      <div class="loader"></div>
-    </div>
-    <!-- preloader end -->
+.aside .social-links a:hover{
+  color: white;
+}
 
-    <!-- Main Container -->
-    <div class="main-container">
-      <!-- Aside -->
-      <div class="aside">
-        <!-- Logo -->
-        <div class="logo">
-          <a href="index.html">Prateek</a>
-        </div>
-        <!-- navbar toggle btn-->
-        <div class="nav-toggler">
-          <span></span>
-        </div>
-        <!-- Navbar--> 
-        <nav>
-          <ul class="nav">
-            <li>
-              <a href="#home" class="active"><i class="fa fa-home"></i>Home</a>
-            </li>
-            <li>
-              <a href="#about"><i class="fa fa-user"></i>About Me</a>
-            </li>
-            <li>
-              <a href="#achievements"><i class="fa fa-trophy"></i>Achievements</a>
-            </li>
-            <li>
-              <a href="#projects"><i class="fa fa-briefcase"></i>Projects</a>
-            </li>
-            <li>
-              <a href="#contact"><i class="fa fa-comments"></i>Contact</a>
-            </li>
-          </ul>
-        </nav>
-        <!--Social-Links-->
-        <div class="social-text">
-          <a href="#contact">Find me on <i class="fa fa-globe"></i></a>
-        </div> 
-        <div class="social-links">
-          <a
-            title="Linkedin"
-            href="https://www.linkedin.com/in/theprateektrivedi/"
-            rel="noopener"
-            target="_blank"
-          >
-            <i class="fa fa-linkedin"></i
-          ></a>
-          <a
-            title="Github"
-            href="https://github.com/prateektrivedi21"
-            rel="noopener"
-            target="_blank"
-            ><i class="fa fa-github"></i
-          ></a>
-          <a
-            title="Instagram"
-            href="https://www.instagram.com/prateek_2248/"
-            rel="noopener"
-            target="_blank"
-          >
-            <i class="fa fa-instagram"></i
-          ></a>
-        </div>
-        <!-- Footer-->
-        <footer>
-          <small> &copy; 2025 Prateek Trivedi</small>
-        </footer>
-      </div>
-      <!-- Aside end -->
+.aside .social-links a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--red);
+  z-index: -1;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <!-- Home Section -->
-        <section class="home section active" id="home">
-          <div class="container">
-            <div class="intro">
-              <div class="about-img">
-                <span class="circle-spin"></span>
-              </div>
-              <!-- <div class="img-div "></div> -->
-              <h1>Hi, I'm Prateek Trivedi</h1>
-              <p>Converts caffeine into code</p>
-              <div class="row">
-                <div class="buttons padd-15">
-                  <a
-                    href="https://drive.google.com/file/d/1fvzDIYlg5fVOZGNsl4WmgFj8LmXNyoll/view?usp=sharing"
-                    rel="noopener"
-                    download
-                    target="_blank"
-                    class="btn"
-                    >Download CV
-                  </a>
-                </div>
-              </div>
-              <div class="social-links">
-                <!-- <p>Find me on</p> -->
-                <a
-                  title="Linkedin"
-                  href="https://www.linkedin.com/in/theprateektrivedi/"
-                  rel="noopener"
-                  target="_blank"
-                >
-                  <i class="fa fa-linkedin"></i
-                ></a>
-                <a
-                  title="Gmail"
-                  href="mailto:prateektrivedi.2019007@gmail.com"
-                  rel="noopener"
-                  target="_blank"
-                  ><i class="fa fa-envelope-o"></i
-                ></a>
-                <a
-                  title="Github"
-                  href="https://github.com/prateektrivedi21"
-                  rel="noopener"
-                  target="_blank"
-                  ><i class="fa fa-github"></i
-                ></a>
-                <a
-                  title="Instagram"
-                  href="https://www.instagram.com/prateek_2248/"
-                  rel="noopener"
-                  target="_blank"
-                >
-                  <i class="fa fa-instagram"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Home Section End -->
+.aside .social-links a:hover::before{
+  width: 100%;
+}
+.aside .social-links a:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
-        <!-- About Section -->
-        <section class="about section" id="about">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>About Me</h2>
-              </div>
-            </div>
+footer small {
+  color: #7d7d7d;
+}
 
-            <div class="row">
-              <div class="about-content padd-15">
-                <div class="row">
-                  <div class="about-text padd-15">
-                    <h3>Hello There!</h3>
-                    <p>
-                      I'm Prateek. I hail from Hardoi city, which is located in
-                      Uttar Pradesh. Although I presently reside in Dehradun. I
-                      have a good hold on frontend technologies like HTML, CSS,
-                      JavaScript. I also have a little bit exposure in React,
-                      Node js , Express js and Mongo DB. I consider myself as a
-                      very focused person, team player and Quick learner.
-                      Moreover I'm Looking towards the challenging and
-                      responsible working environment where I can serve and
-                      improve my knowledge and skills for the betterment of the
-                      company and self.
-                    </p>
-                  </div>
-                </div>
+/* Home Section */
+.home {
+  min-height: 100vh;
+  display: flex;
+  display: -ms-flexbox;
+}
+.home .intro {
+  text-align: center;
+}
 
-                <div class="row">
-                  <div class="personal-info padd-15">
-                    <div class="row">
-                      <div class="info-item padd-15">
-                        <p>Birthday : <span>23 November 2002</span></p>
-                      </div>
-                      <div class="info-item padd-15">
-                        <p>Age : <span>21</span></p>
-                      </div>
-                      <div class="info-item padd-15">
-                        <p>Phone : <span>+91 8081720918</span></p>
-                      </div>
-                      <div class="info-item padd-15">
-                        <p>City : <span>Hardoi, Uttar Pradesh</span></p>
-                      </div>
-                      <div class="info-item padd-15">
-                        <p>
-                          Mail : <span>prateektrivedi.2019007@gmail.com</span>
-                        </p>
-                      </div>
-                      <div class="info-item padd-15">
-                        <p>Hobbies : <span>Gaming, Travelling</span></p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="buttons padd-15">
-                        <a
-                          href="https://drive.google.com/file/d/1fvzDIYlg5fVOZGNsl4WmgFj8LmXNyoll/view?usp=sharing"
-                          rel="noopener"
-                          download
-                          target="_blank"
-                          class="btn"
-                          >Download CV
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Skills -->
-                  <div class="skills padd-15">
-                    <div class="row">
-                      <h3 class="padd-15">Advance</h3>
+.about-img{
+  height: 200px;
+  width: 200px;
+  background: url("../images/DSC_6529.JPG") no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+  border: .2rem solid var(--red);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-                      <div class="skill-item padd-15">
-                        <h4>HTML</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 90%"></div>
-                          <div class="skill-percent">90%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>CSS</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 80%"></div>
-                          <div class="skill-percent">80%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>Problem-Solving</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 80%"></div>
-                          <div class="skill-percent">80%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>PHP</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 60%"></div>
-                          <div class="skill-percent">60%</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="skills padd-15">
-                    <div class="row">
-                      <h3 class="padd-15">Intermediate</h3>
+.circle-spin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0);
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  border-top: .2rem solid transparent;
+  border-bottom: .2rem solid transparent;/*#f2f2fc*/
+  border-left: .2rem solid var(--red);
+  border-right: .2rem solid var(--red);
+  animation: aboutSpinner 8s linear infinite;
+}
+.home .intro .img-div:hover{
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  border-color: var(--red);
+}
 
-                      <div class="skill-item padd-15">
-                        <h4>JavaScript</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 80%"></div>
-                          <div class="skill-percent">80%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>Tailwind</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 65%"></div>
-                          <div class="skill-percent">65%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>React JS</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 50%"></div>
-                          <div class="skill-percent">50%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>SQL</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 50%"></div>
-                          <div class="skill-percent">50%</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="skills padd-15">
-                    <div class="row">
-                      <h3 class="padd-15">Beginner</h3>
+.home .intro h1 {
+  font-size: 30px;
+  color: #302e4c;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  margin: 30px 0 5px;
+}
+.home .intro p {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 22px;
+  color: #504e70;
+}
 
-                      <div class="skill-item padd-15">
-                        <h4>C++</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 80%"></div>
-                          <div class="skill-percent">80%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>Python</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 40%"></div>
-                          <div class="skill-percent">40%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>Java</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 60%"></div>
-                          <div class="skill-percent">60%</div>
-                        </div>
-                      </div>
-                      <div class="skill-item padd-15">
-                        <h4>Git</h4>
-                        <div class="progress">
-                          <div class="progress-in" style="width: 40%"></div>
-                          <div class="skill-percent">40%</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Skills end -->
+.home .buttons {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
 
-                <!-- // Education  -->
-                <div class="row">
-                  <div class="education padd-15">
-                    <h3 class="title">Education</h3>
-                    <div class="row">
-                      <div class="timeline-box padd-15">
-                        <div class="timeline shadow-dark">
-                          <!-- Timeline Item -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h5 class="timeline-date">
-                              <i class="fa fa-calendar"></i>2021 - pursuing
-                            </h5>
-                            <h4 class="timeline-title">
-                              Bachelor's of Technology
-                            </h4>
-                            <p class="timeline-text">
-                              Graphic Era University, Dehradun
-                            </p>
-                            <p class="timeline-text">
-                              CGPA : 8.62 till 7th sem
-                            </p>
-                          </div>
-                          <!-- /// Timeline Item End -->
-                          <!-- Timeline Item -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h5 class="timeline-date">
-                              <i class="fa fa-calendar"></i>2019 - 2020
-                            </h5>
-                            <h4 class="timeline-title">
-                              Senior Secondary (non-medical)
-                            </h4>
-                            <p class="timeline-text">
-                              St.Xavier's Senior Secondary School
-                            </p>
-                            <p class="timeline-text">percentage : 92.2%</p>
-                          </div>
-                          <!-- /// Timeline Item End -->
-                          <!-- Timeline Item -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h5 class="timeline-date">
-                              <i class="fa fa-calendar"></i>2017 - 2018
-                            </h5>
-                            <h4 class="timeline-title">Matriculation</h4>
-                            <p class="timeline-text">
-                              St.Xavier's Senior Secondary School
-                            </p>
-                            <p class="timeline-text">percentage : 73.8%</p>
-                          </div>
-                          <!-- /// Timeline Item End -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Certificates -->
-                  <div class="experience padd-15">
-                    <h3 class="title">Certificates</h3>
-                    <div class="row">
-                      <div class="timeline-box padd-15">
-                        <div class="timeline shadow-dark">
-                          <!-- Timeline Item -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h5 class="timeline-date">
-                              <i class="fa fa-calendar"></i> December2023 -
-                              January 2024
-                            </h5>
-                            <h4 class="timeline-title">
-                              Foundations of CyberSecurity
-                            </h4>
-                            <p class="timeline-text">
-                              Achieved certification in cybersecurity
-                              fundamentals from Google, covering essential
-                              concepts, tools, and practices for safeguarding
-                              digital assets and systems.
-                            </p>
-                          </div>
-                          <!-- /// Timeline Item End -->
-                          <!-- Timeline Item -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h5 class="timeline-date">
-                              <i class="fa fa-calendar"></i>October 2023
-                            </h5>
-                            <h4 class="timeline-title">
-                              Google cloud generative AI
-                            </h4>
-                            <p class="timeline-text">
-                              Earned certification in Google Cloud Generative
-                              AI, demonstrating expertise in using AI and
-                              machine learning tools to build and deploy
-                              generative models on the Google Cloud platform.
-                            </p>
-                          </div>
-                          <!-- /// Timeline Item End -->
-                          <!-- Timeline Item -->
-                          <div class="timeline-item">
-                            <div class="circle-dot"></div>
-                            <h5 class="timeline-date">
-                              <i class="fa fa-calendar"></i>November 2021 -
-                              January 2022
-                            </h5>
-                            <h4 class="timeline-title">
-                              Web Development Bootcamp
-                            </h4>
-                            <p class="timeline-text">
-                              Completed a Comprehensive course covering
-                              full-stack web development. Includes HTML, CSS,
-                              JavaScript, React, Node.js, databases, and
-                              deployment. Designed to equip learners with
-                              essential skills for modern web development.
-                            </p>
-                          </div>
-                          <!-- /// Timeline Item End -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Experience End -->
-                </div>
-                <!-- ////// -->
-              </div>
-            </div>
-          </div>
-          <!-- Container end -->
-        </section>
-        <!-- About Section End-->
+.home .intro .buttons::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 2;
+}
 
-        <!-- Achievements Section -->
-        <section class="achievements section" id="achievements">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>Achievements</h2>
-              </div>
-            </div>
-            <div class="row">
-              <!-- Achievement Item -->
-              <div class="achievement-item padd-15">
-                <div class="achievement-info">
-                  <h4 class="achievement-title">
-                    <a href="https://www.codechef.com/users/callmetrivedi"><img width="40" height="40" src="https://img.icons8.com/color/48/codechef.png" alt="codechef"/></a> CodeChef
-                  </h4>
-                  <p class="achievement-description">
-                    <li>Solved over 400+ programming challenges.</li>
-                    <li>Achieved a 3⭐ with a peak rating of 1614 in Division 2, ranking in the top 10%.</li>
-                  </p>
-                </div>
-              </div>
-              <!-- // Achievement Item End -->
-              <!-- Achievement Item -->
-              <div class="achievement-item padd-15">
-                <div class="achievement-info">
-                  <h4 class="achievement-title">
-                    <a href="https://leetcode.com/u/triprat__23/"><img width="24" height="24" src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/24/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-shadow-tal-revivo.png" alt="external-level-up-your-coding-skills-and-quickly-land-a-job-logo-shadow-tal-revivo"/></i></a> LeetCode
-                  </h4>
-                  <p class="achievement-description"> 
-                    <li>Solved 400+ problems, emphasizing over 50+ algorithmic approaches.</li>
-                    <li>Secured 9+ badges for active participation in skill development initiatives and contests.</li>
-                  </p>
-                </div>
-              </div>
-              <!-- // Achievement Item End -->
-              <!-- Achievement Item -->
-              <div class="achievement-item padd-15">
-                <div class="achievement-info">
-                  <h4 class="achievement-title">
-                    <img width="30" height="30" src="https://img.icons8.com/windows/32/hackerrank.png" alt="hackerrank"/></i> HackerRank
-                  </h4>
-                  <p class="achievement-description">
-                    <li>Completed over 100+ problems with a 5⭐ rating in C++, 4⭐ rating in C and achieved a qualifying score on the Java skill test, demonstrating advanced proficiency and coding skills.</li>
-                  </p>
-                </div>
-              </div>
-              <!-- // Achievement Item End -->
-              <!-- Achievement Item -->
-              <div class="achievement-item padd-15">
-                <div class="achievement-info">
-                  <h4 class="achievement-title">
-                    <img width="22" height="22" src="https://img.icons8.com/ios-filled/50/programming.png" alt="programming"/></i> Competitive Programming            
-                  </h4>
-                  <p class="achievement-description">
-                    <li>Consistently ranked among top participants in various coding competitions and challenges.</li>
-                    <li>Ranked 3631st out of 100,000+ participants in the CodeKaze - Coding competition.</li>
-                  </p>
-                </div>
-              </div>
-              <!-- // Achievement Item End -->
-            </div>
-          </div>
-        </section>
-        <!-- Achievements Section End -->
+.home .intro .buttons a{
+  margin-top: 15px;
+  padding: 10px 35px;
+}
 
-        <!-- Projects Section -->
-        <section class="project section" id="projects">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>My Projects</h2>
-              </div>
-            </div>
-            <div class="row">
-              <!-- Project Item -->
-              <div class="project-item padd-15">
-                <div class="project-item-inner shadow-dark">
-                  <div class="project-img">
-                    <img src="./images/movie.png" alt="" />
-                  </div>
-                  <div class="project-info">
-                    <h4 class="project-title">Movie-Recommendation-System</h4>
-                    <p class="project-description">
-                      Developed a system to suggest movies based on user
-                      preferences and viewing history. Utilized collaborative
-                      filtering and machine learning algorithms to provide
-                      personalized movie recommendations.
-                    </p>
-                    <div class="buttons">
-                      <span
-                        ><a
-                          href="https://github.com/prateektrivedi21/Movie-Recommendation-System"
-                          class="btn"
-                          >View Project</a
-                        ></span
-                      >&nbsp;&nbsp;&nbsp;<span
-                        ><a
-                          href="https://github.com/prateektrivedi21/Movie-Recommendation-System"
-                          class="btn"
-                          >Demo</a
-                        ></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- //project item end -->
-              <!-- Project Item -->
-              <div class="project-item padd-15">
-                <div class="project-item-inner shadow-dark">
-                  <div class="project-img">
-                    <img src="./images/stress.jpeg" alt="" />
-                  </div>
-                  <div class="project-info">
-                    <h4 class="project-title">
-                      Stress Detection from text stream
-                    </h4>
-                    <p class="project-description">
-                      Developed a machine learning model to detect stress from
-                      text streams like social media posts, user inputs, and
-                      interviews. This scalable, cost-effective alternative to
-                      traditional methods offers real-time stress monitoring and
-                      intervention.
-                    </p>
-                    <div class="buttons">
-                      <a
-                        href="https://github.com/prateektrivedi21/Stress-Detection-from-text-stream"
-                        class="btn"
-                        >View Project</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- //project item end -->
-              <!-- Project Item -->
-              <div class="project-item padd-15">
-                <div class="project-item-inner shadow-dark">
-                  <div class="project-img">
-                    <img src="images/imageclass.jpg" alt="" />
-                  </div>
-                  <div class="project-info">
-                    <h4 class="project-title">
-                      Image Classification using CNN
-                    </h4>
-                    <p class="project-description">
-                      Implemented a Convolutional Neural Network (CNN) to
-                      classify images into various categories. Leveraged deep
-                      learning techniques to achieve high accuracy in
-                      recognizing and distinguishing visual patterns in images.
-                    </p>
+.home .intro .buttons a:hover{
+  border: 2px solid #302e4d;
+  color: black;
+}
 
-                    <div class="buttons">
-                      <a
-                        href="https://github.com/prateektrivedi21/Image_Classification_Using_CNN"
-                        target="_blank"
-                        class="btn"
-                        >View Project</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- //project item end -->
-              <!-- Project Item -->
-              <div class="project-item padd-15">
-                <div class="project-item-inner shadow-dark">
-                  <div class="project-img">
-                    <img src="./images/malware.jpg" alt="" />
-                  </div>
-                  <div class="project-info">
-                    <h4 class="project-title">
-                      Malware Detection using Deep Learning
-                    </h4>
-                    <p class="project-description">
-                      Developed a deep learning model to detect and classify
-                      malware. Utilized neural networks to analyze patterns and
-                      behaviors, enhancing malware detection accuracy and
-                      cybersecurity
-                    </p>
-                    <div class="buttons">
-                      <a
-                        href="https://github.com/prateektrivedi21/Malware_Detection_using_Deep_Learning"
-                        target="_blank"
-                        class="btn"
-                        >View Project</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- //project item end -->
-              <!-- // project item -->
-              <div class="project-item padd-15">
-                <div class="project-item-inner shadow-dark">
-                  <div class="project-img">
-                    <img src="./images/smms.png" alt="" />
-                  </div>
-                  <div class="project-info">
-                    <h4 class="project-title">Supermarket Management System</h4>
-                    <p class="project-description">
-                      Used C++ to develop a Supermarket Management System. This
-                      project facilitates the user to add, remove, edit, show
-                      details of products in the cart. Finally it also prints
-                      the final bill.
-                    </p>
-                    <div class="buttons">
-                      <a
-                        href="https://github.com/prateektrivedi21/Supermarket_Management_System/"
-                        class="btn"
-                        >View Project</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- // project item end -->
-              <!-- Project Item -->
-              <div class="project-item padd-15">
-                <div class="project-item-inner shadow-dark">
-                  <div class="project-img">
-                    <img src="./images/guess.jpg" alt="" />
-                  </div>
-                  <div class="project-info">
-                    <h4 class="project-title">Guess-Game</h4>
-                    <p class="project-description">
-                      Created an interactive game where users guess a randomly
-                      generated number within a specified range. Implemented
-                      logic for feedback on each guess, guiding users to the
-                      correct number through hints..
-                    </p>
-                    <div class="buttons">
-                      <a
-                        href="https://github.com/prateektrivedi21/Shopping-Cart/"
-                        target="_blank"
-                        class="btn"
-                        >View Project</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- //project item end -->
-            </div>
-          </div>
-        </section>
-        <!-- Project Section End -->
+.home .intro .buttons a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f2f2fc;
+  z-index: -1;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
 
-        <!-- Contact Section -->
-        <section class="contact section" id="contact">
-          <div class="container">
-            <div class="row">
-              <div class="section-title padd-15">
-                <h2>Contact Me</h2>
-              </div>
-            </div>
-            <div class="contact-help">
-              <p>How can I help you?</p>
-            </div>
-            <div class="row">
-              <!-- Contact Info Item -->
-              <div class="contact-info-item padd-15">
-                <div class="icon">
-                  <i class="fa fa-phone"></i>
-                </div>
-                <h2>Call Us On</h2>
-                <p>+91 8081XXXXXXXX</p>
-              </div>
-              <!-- Contact Info Item End -->
-              <!-- Contact Info Item -->
-              <div class="contact-info-item padd-15">
-                <div class="icon">
-                  <i class="fa fa-envelope"></i>
-                </div>
-                <h2>E-Mail</h2>
-                <p>prateektrivedi.xavier@gmail.com</p>
-              </div>
-              <!-- Contact Info Item End -->
-              <!-- Contact Info Item -->
-              <div class="contact-info-item padd-15">
-                <div class="icon">
-                  <i class="fa fa-map-marker"></i>
-                </div>
-                <h2>Office</h2>
-                <p>Hardoi, Uttar Pradesh</p>
-              </div>
-              <!-- Contact Info Item End -->
-              <!-- Contact Info Item -->
-              <div class="contact-info-item padd-15">
-                <div class="icon">
-                  <i class="fa fa-globe" aria-hidden="true"></i>
-                </div>
-                <h2>Website</h2>
-                <p>prateektrivedi21.github.io</p>
-              </div>
-              <!-- Contact Info Item End -->
-            </div>
-            <!-- Contact Form -->
-            <div class="row">
-              <div class="contact-text padd-15">
-                <p>Let's get in touch</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="buttons padd-15">
-                <a
-                  href="mailto:prateektrivedi.2019007@gmail.com"
-                  target="_blank"
-                  class="btn contact-btn"
-                  >Mail Me !!
-                </a>
-              </div>
-            </div>
+.home .intro .buttons a:hover::before{
+  width: 100%;
+}
 
-            <!-- form -->
-            <div class="form_section">
-              <form action="" id="form">
-                <div class="inputs_container">
-                  <div class="input_group">
-                    <input type="text" required />
-                    <span>Name</span>
-                  </div>
+.home .intro .social-links {
+  margin-top: 15px;
+}
 
-                  <div class="input_group">
-                    <input type="text" required />
-                    <span>Email</span>
-                  </div>
+.home .intro .social-links::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  /* height: 100%; */
+  background: white;
+  z-index: 2;
+}
 
-                  <div class="input_group">
-                    <input type="number" required />
-                    <span>Mobile Number</span>
-                  </div>
+.home .intro .social-links a{
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  /* border: 2px solid #302e4d; */
+  border-radius: 50%;
+  font-size: 20px;
+  color: #ffffff; /* color: #302e4d; */
+  text-decoration: none;
+  overflow: hidden;
+  /* z-index: 1; 
+  height: 35px;
+  width: 35px; */
+  line-height: 35px;
+  margin: 0 4px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
 
-                  <div class="input_group">
-                    <select name="occupation" id="occupation" required>
-                      <option value="">--Choose an option--</option>
-                      <option value="student">Student</option>
-                      <option value="developer">Developer</option>
-                      <option value="recruiter">Recruiter</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
+.home .intro .social-links a:hover{
+  border: 2px solid #302e4d;
+  color: black;
+}
 
-                <div class="feedback">
-                  <span>Provide your valuable feedback</span>
-                  <textarea name="feedback" id="feedback-text" required></textarea>
-                </div>
-                <input type="submit" value="Submit" class="submit_form" />
-              </form>
-            </div>
-            <!-- Contact Form End-->
-          </div>
-        </section>
-        <!-- Contact Section End -->
-      </div>
-      <!-- Main Content end -->
-    </div>
-    <!-- main container end -->
+.home .intro .social-links a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f2f2fc;
+  z-index: -1;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
 
-    <!-- /// Live style switcher -->
-    <div class="style-switcher">
-      <div class="toggle-style-switcher">
-        <i class="fa fa-cog fa-spin"></i>
-      </div>
-      <h5>Switch Theme</h5>
-      <ul>
-        <li>
-          <a
-            href="javascript:void(0);"
-            title="red"
-            style="background-color: #e40017"
-            onclick="setActiveStyle('red')"
-          ></a>
-        </li>
-        <li>
-          <a
-            href="javascript:void(0);"
-            title="blue"
-            style="background-color: #0779e4"
-            onclick="setActiveStyle('blue')"
-          ></a>
-        </li>
-        <li>
-          <a
-            href="javascript:void(0);"
-            title="green"
-            style="background-color: #57d131"
-            onclick="setActiveStyle('green')"
-          ></a>
-        </li>
-        <li>
-          <a
-            href="javascript:void(0);"
-            title="purple"
-            style="background-color: #a100ff"
-            onclick="setActiveStyle('purple')"
-          ></a>
-        </li>
-        <li>
-          <a
-            href="javascript:void(0);"
-            title="yellow"
-            style="background-color: #ffcc00"
-            onclick="setActiveStyle('yellow')"
-          ></a>
-        </li>
-      </ul>
-      <h5>Body Skin</h5>
-      <label>
-        <input
-          type="radio"
-          class="body-skin"
-          name="switch-mode"
-          value="light"
-          checked="true"
-        />
-        Light
-      </label>
-      <label>
-        <input type="radio" class="body-skin" name="switch-mode" value="dark" />
-        Dark
-      </label>
-    </div>
-    <!-- /// Live style switcher End -->
+.home .intro .social-links a:hover::before{
+  width: 100%;
+}
+.home .intro .social-links a:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/* Home Section end */
 
-    <script src="js/script.js"></script>
-    <script src="js/styleSwitcher.js"></script>
-  </body>
-</html>
+/* About Section */
+.about .about-content {
+  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  max-width: 100%;
+}
+.about .about-content .about-text {
+  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  max-width: 100%;
+}
+.about .about-content .about-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.about .about-content .about-text p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #504e70;
+  margin: 0;
+}
+/* //// About Personal Info*/
+.about .about-content .personal-info {
+  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 40px;
+}
+.about .about-content .personal-info .info-item {
+  flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  max-width: 50%;
+}
+.about .about-content .personal-info .info-item p {
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #302e4d;
+  border-bottom: 1px solid #e8dfec;
+  margin: 0;
+}
+.about .about-content .personal-info .info-item p span {
+  font-weight: 400;
+  color: #504e70;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+/* ////// Buttons */
+.about .about-content .personal-info .buttons {
+  margin-top: 30px;
+}
+.about .about-content .personal-info .buttons .btn {
+  margin-right: 15px;
+  margin-top: 10px;
+}
+.about .about-content .personal-info .buttons::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 2;
+}
+
+.about .about-content .personal-info .buttons a{
+  margin-top: 15px;
+  padding: 10px 35px;
+}
+
+.about .about-content .personal-info .buttons a:hover{
+  border: 2px solid #302e4d;
+  color: black;
+}
+
+.about .about-content .personal-info .buttons a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f2f2fc;
+  z-index: -1;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+.about .about-content .personal-info .buttons a:hover::before{
+  width: 100%;
+}
+/* ////Skills */
+.about .about-content .skills {
+  flex: 0 0 33.3%;
+  -ms-flex: 0 0 33.3%;
+  max-width: 33.3%;
+  margin-top: 40px;
+}
+.about .about-content .skills .skill-item {
+  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+.about .about-content .skills h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #302e4d;
+}
+.about .about-content .skills .skill-item h4 {
+  line-height: 40px;
+  font-weight: 600;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #302e4d;
+  text-transform: capitalize;
+  margin: 0;
+}
+.about .about-content .skills .skill-item .progress {
+  background-color: rgb(237, 236, 236);
+  height: 5px;
+  border-radius: 4px;
+  /* overflow: hidden; */
+  width: 100%;
+  position: relative;
+}
+.about .about-content .skills .skill-item .progress .progress-in {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 4px;
+}
+.about .about-content .skills .skill-item .progress .skill-percent {
+  /* display: none; */
+  line-height: 40px;
+  position: absolute;
+  right: 0;
+  top: -40px;
+  font-weight: 400;
+  color: #302e4d;
+}
+
+/* //// Education Start */
+.about .about-content .education {
+  flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  max-width: 50%;
+  margin-top: 40px;
+}
+.about .about-content .experience {
+  flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  max-width: 50%;
+  margin-top: 40px;
+}
+.about .about-content h3.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #302e4d;
+}
+.about .about-content .timeline-box {
+  flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  max-width: 100%;
+}
+.about .about-content .timeline {
+  background-color: #fdf9ff;
+  padding: 30px 15px;
+  border: 1px solid #d4d4e3;
+  border-radius: 10px;
+  width: 100%;
+  /* position: relative; */
+}
+.about .about-content .timeline .timeline-item {
+  position: relative;
+  padding-left: 37px;
+  padding-bottom: 50px;
+}
+.about .about-content .timeline .timeline-item:last-child {
+  padding-bottom: 0;
+}
+.about .about-content .timeline .timeline-item::before {
+  content: "";
+  width: 1px;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.about .about-content .timeline .circle-dot {
+  position: absolute;
+  left: -7px;
+  top: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+.about .about-content .timeline .timeline-date {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: #504e70;
+}
+.about .about-content .timeline .timeline-date .fa {
+  margin-right: 5px;
+}
+.about .about-content .timeline .timeline-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  color: #302e4d;
+}
+.about .about-content .timeline .timeline-text {
+  font-size: 16px;
+  line-height: 25px;
+  color: #504e70;
+  margin: 0;
+}
+/* About Section End */
+
+/* Achievements Section */
+.achievements .achievement-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px; 
+  background-color: #fff; 
+  margin-bottom: 10px;
+}
+
+.achievements .achievement-item:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.achievements .achievement-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.achievements .achievement-title i {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.achievements .achievement-info {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.achievements .achievement-description {
+  font-size: 16px;
+  color: #555;
+}
+/* Achievement Section */
+
+/* Project Section */
+.project .container {
+  padding-bottom: 40px;
+}
+.project .project-item {
+  display: flex;
+  -ms-flex: 0 0 33.33%;
+  flex: 0 0 33.33%;
+  max-width: 33.33%;
+  padding-bottom: 30px;
+}
+.project .project-item-inner {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d4d4e3;
+  width: 100%;
+  background-color: #fdf9ff;
+}
+.project .project-item-inner .project-img {
+  width: 100%;
+  display: block;
+}
+.project .project-item-inner .project-img img {
+  width: 100%;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}
+.project .project-item-inner:hover .project-img img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+.project .project-item-inner .project-info {
+  width: 100%;
+  padding: 30px 15px;
+}
+.project .project-item-inner .project-info .project-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #302e4d;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.project .project-item-inner .project-info .project-description {
+  font-size: 16px;
+  line-height: 25px;
+  color: #504e70;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+.project .project-item-inner .buttons::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 2;
+}
+
+.project .project-item-inner .buttons a{
+  margin-top: 15px;
+  padding: 10px 35px;
+}
+
+.project .project-item-inner .buttons a:hover{
+  border: 2px solid #302e4d;
+  color: black;
+}
+
+.project .project-item-inner .buttons a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f2f2fc;
+  z-index: -1;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+.project .project-item-inner .buttons a:hover::before{
+  width: 100%;
+}
+/* Contact Section */
+.contact .contact-info-item {
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.contact .contact-info-item .icon {
+  display: inline-block;
+}
+.contact .contact-info-item .icon .fa {
+  font-size: 40px;
+}
+.contact .contact-info-item p {
+  font-size: 16px;
+  line-height: 25px;
+  color: #504e70;
+  margin: 0;
+  font-weight: 400;
+}
+.contact-help{
+  margin-bottom: 60px;
+}
+.contact-help p{
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--red);
+}
+.contact-text, .contact-help{
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.contact-text p{
+  font-size: 50px;
+  font-weight: 400;
+  /* margin-top: 60px; */
+}
+.contact .buttons {
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
+.contact-btn {
+  margin-top: 50px;
+}
+.contact .buttons::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: white;
+  z-index: 2;
+}
+
+.contact .buttons a{
+  margin-top: 15px;
+  padding: 10px 35px;
+}
+
+.contact .buttons a:hover{
+  border: 2px solid #302e4d;
+  color: black;
+}
+
+.contact .buttons a::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f2f2fc;
+  z-index: -1;
+  transition: .5s;
+  -webkit-transition: .5s;
+}
+
+.contact .buttons a:hover::before{
+  width: 100%;
+}
+/* //////////////// form ///////// */
+.form_section{
+  width: 60%;
+  margin: 50px auto;
+}
+
+.form_section #form{
+  width: 100%;
+}
+
+#form .inputs_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#form .inputs_container .input_group{
+  position: relative;
+  margin-bottom: 30px;
+  width: 48%;
+  overflow: hidden;
+}
+
+#form .feedback{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#form .feedback textarea{
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+#form .input_group input, 
+#form .submit_form,
+#form .input_group select,
+#form .feedback #feedback-text {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color: #504e70;
+  background: transparent;
+  border-radius: 5px;
+  border: 2px solid #302e4c;
+  transition: all 0.4s ease;
+}
+
+#form .input_group span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transition: all 0.4s ease;
+  font-size: 1rem;
+  z-index: -1;
+}
+#form .feedback span {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color: #302e4c;
+  transition: all 0.4s ease;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Added the textarea selector here */
+#form .feedback textarea:valid ~ span,
+#form .input_group input:valid ~ span {
+  transform: translateX(-11px) translateY(-35px);
+  color: transparent;
+}
+
+/* Chrome, Safari, Edge, Opera */
+#form input[type=number]::-webkit-outer-spin-button,
+#form input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+/* #form .submit_form{
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: transparent;
+} */
+/* ///// form end /////// */
+
+
+/* Contact Section End */
+
+/* Dark Mode */
+body.dark .section {
+  background-color: #151515;
+}
+body.dark .contact .contact-form .form-item .form-control,
+body.dark .project .project-item-inner .project-info,
+body.dark .about .about-content .timeline,
+body.dark .aside {
+  background-color: #222222;
+}
+body.dark .contact .contact-form .form-item .form-control,
+body.dark .contact .contact-info-item p,
+body.dark .project .project-item-inner .project-info .project-title,
+body.dark .about .about-content .timeline .timeline-title,
+body.dark .about .about-content h3.title,
+body.dark .about .about-content .skills .skill-item h4,
+body.dark .about .about-content .skills .skill-item .progress .skill-percent,
+body.dark .about .about-content .personal-info .info-item p,
+body.dark .section-title h2,
+body.dark .home .intro h1,
+body.dark .aside .logo a,
+body.dark .aside .nav li a {
+  color: white;
+}
+body.dark .aside,
+body.dark .project .project-item-inner .project-info .project-description,
+body.dark .about .about-content .timeline .timeline-date,
+body.dark .about .about-content .timeline .timeline-text,
+body.dark .about .about-content .personal-info .info-item p span,
+body.dark .about .about-content .about-text p,
+body.dark .home .intro p {
+  color: #e9e9e9;
+}
+body.dark .shadow-dark {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+body.dark .aside .nav li a {
+  border-color: #393939;
+}
+
+/* ////// form ////////// */
+body.dark #form .input_group input, 
+body.dark #form .submit_form,
+
+body.dark #form .input_group span{
+  color: #fff;
+}
+
+body.dark #form .input_group select{
+  background: #151515;
+  color: #fff;
+}
+
+/* ////// RESPONSIVE */
+
+@media (max-width: 998px) {
+  .section-title h2 {
+    margin-top: 15px;
+  }
+  .aside .nav-toggler {
+    display: flex;
+    display: -ms-flexbox;
+    left: 30px;
+  }
+  .aside .nav-toggler.open {
+    left: 200px;
+  }
+  .aside {
+    left: -270px;
+  }
+  .aside.open {
+    left: 0px;
+  }
+  .section {
+    left: 0;
+  }
+  .section.open {
+    left: 270px;
+  }
+  .aside {
+    left: -270px;
+  }
+  .main-content {
+    padding-left: 0;
+  }
+  .about .about-content .personal-info .info-item p span {
+    display: block;
+    margin-left: 0;
+  }
+  .project .project-item {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (max-width: 910px) {
+  .about .about-content .skills {
+    flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 40px;
+  }
+  .contact .contact-info-item {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (max-width: 740px) {
+  .about .about-content .education {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+  .about .about-content .experience {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 650px) {
+  .project .project-item {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 580px) {
+  .contact-text p{
+    font-size: 45px;
+    margin: 10px 0;
+  }
+  .contact-help p{
+    font-size: 40px;
+    margin:10px 0;
+  }
+}
+
+@media (max-width: 565px) {
+  .section-title h2 {
+    font-size: 30px;
+  }
+  .about .about-content .personal-info .info-item {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .about .about-content .skills {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 40px;
+  }
+  .contact .contact-info-item {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .contact-btn {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  #form .feedback span {
+    width: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .contact-text p, .contact-help p{
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .achievements .achievement-item {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .home .intro .social-links{
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+@keyframes aboutSpinner {
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
