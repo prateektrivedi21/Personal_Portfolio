@@ -453,14 +453,14 @@ footer small {
   text-align: center;
 }
 
-.about-img {
+.about-img{
   height: 200px;
   width: 200px;
   background: url("../images/DSC_6529.JPG") no-repeat;
   background-size: cover;
   border-radius: 50%;
   margin: 0 auto;
-  border: 0.2rem solid var(--red);
+  border: .2rem solid var(--red);
   transition: all 0.3s ease;
   position: relative;
   display: flex;
