@@ -456,7 +456,7 @@ footer small {
 .about-img {
   height: 200px;
   width: 200px;
-  background: url("/images/DSC_6529.JPG") no-repeat;
+  background: url("../images/DSC_6529.JPG") no-repeat;
   background-size: cover;
   border-radius: 50%;
   margin: 0 auto;
@@ -1212,8 +1212,6 @@ body.dark #form .input_group select {
     margin-top: 15px;
   }
   .aside .nav-toggler {
-      display: flex;
-      display: -ms-flexbox;
       left: 30px;
     }
   .aside .nav-toggler.open {
